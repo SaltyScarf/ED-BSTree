@@ -1,4 +1,6 @@
-﻿namespace LAB_5_ADST
+﻿using System;
+
+namespace LAB_5_ADST
 {
     public class BSTree<T>
     {
@@ -59,6 +61,36 @@
             _count++;
             
             return true;
+        }
+        
+        public void PrintPreorder()
+        {
+            PrintPreorder(Root);
+        }
+        
+        public void PrintInorder()
+        {
+            PrintInorder(Root);
+        }
+        
+        private void PrintPreorder(BSTNode<T> parent)
+        {
+            if (parent != null)
+            {
+                Console.Write(parent.Key + " ");
+                PrintPreorder(parent.LeftChild);
+                PrintPreorder(parent.RightChild);
+            }
+        }
+        
+        private void PrintInorder(BSTNode<T> parent)
+        {
+            if (parent != null)
+            {
+                PrintInorder(parent.LeftChild);
+                Console.Write(parent.Key + " ");
+                PrintInorder(parent.RightChild);
+            }
         }
     }
 }
