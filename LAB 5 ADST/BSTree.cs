@@ -12,7 +12,7 @@ namespace LAB_5_ADST
         {
             get => _count;
         }
-        
+
         public bool BST_Insert(T value, int key)
         {
             if (Root == null)
@@ -62,7 +62,33 @@ namespace LAB_5_ADST
             
             return true;
         }
+
+        public void CopyTo(BSTree<T> tree2)
+        {
+            if (Root != null)
+            {
+                tree2.Root = new BSTNode<T>(Root.Value, Root.Key);
+
+                FillInorder(Root, tree2.Root);
+            }
+        }
         
+        private void FillInorder(BSTNode<T> root1, BSTNode<T> root2)
+        {
+            if (root1.LeftChild != null)
+            {
+                FillInorder(root1.LeftChild, root2.LeftChild = new BSTNode<T>(default, 0));
+            }
+            
+            root2.Value = root1.Value;
+            root2.Key = root1.Key;
+            
+            if (root1.RightChild != null)
+            {
+                FillInorder(root1.RightChild, root2.RightChild = new BSTNode<T>(default, 0));
+            }
+        }
+
         public void PrintPreorder()
         {
             PrintPreorder(Root);

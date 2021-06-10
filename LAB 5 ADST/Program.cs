@@ -13,6 +13,18 @@ namespace LAB_5_ADST
             test.BST_Insert(300, 70);
             test.BST_Insert(400, 60);
             test.BST_Insert(500, 80);
+            
+            test.PrintPreorder();
+            Console.WriteLine();
+            test.PrintInorder();
+            
+            BSTree<int> test2 = new BSTree<int>();
+            
+            test.CopyTo(test2);
+            Console.WriteLine();
+            test2.PrintPreorder();
+            Console.WriteLine();
+            test2.PrintInorder();
         }
     }
 }
